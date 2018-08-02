@@ -6,10 +6,15 @@
  */
 package org.mule.extensions.jms.api.message;
 
+import static org.apache.commons.lang3.builder.ToStringStyle.MULTI_LINE_STYLE;
+
 import org.mule.runtime.extension.api.annotation.param.Optional;
 import org.mule.runtime.extension.api.annotation.param.Parameter;
 
 import javax.jms.Message;
+
+import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
 
 /**
  * Contains all the metadata of a JMS {@link Message}, it carries information such as the Headers,
@@ -60,5 +65,10 @@ public class JmsAttributes implements org.mule.jms.commons.api.message.JmsAttrib
   @Override
   public String getAckId() {
     return ackId;
+  }
+
+  @Override
+  public String toString() {
+    return ReflectionToStringBuilder.toString(this, MULTI_LINE_STYLE);
   }
 }

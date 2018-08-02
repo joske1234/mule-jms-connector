@@ -6,12 +6,16 @@
  */
 package org.mule.extensions.jms.api.message;
 
+import static org.apache.commons.lang3.builder.ToStringStyle.MULTI_LINE_STYLE;
+
 import org.mule.jms.commons.api.destination.JmsDestination;
 import org.mule.jms.commons.api.message.JmsHeadersBuilder;
 import org.mule.runtime.extension.api.annotation.param.Optional;
 import org.mule.runtime.extension.api.annotation.param.Parameter;
 
 import javax.jms.DeliveryMode;
+
+import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 
 /**
  * JMS header fields contain values used by both clients and providers to identify and route messages.
@@ -240,6 +244,11 @@ public class JmsHeaders extends org.mule.jms.commons.api.message.JmsHeaders {
     public JmsHeaders build() {
       return jmsHeaders;
     }
+  }
+
+  @Override
+  public String toString() {
+    return ReflectionToStringBuilder.toString(this, MULTI_LINE_STYLE);
   }
 
 }

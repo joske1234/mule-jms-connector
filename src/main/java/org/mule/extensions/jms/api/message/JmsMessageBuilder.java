@@ -7,6 +7,7 @@
 package org.mule.extensions.jms.api.message;
 
 
+import static org.apache.commons.lang3.builder.ToStringStyle.MULTI_LINE_STYLE;
 import static org.mule.extensions.jms.internal.common.JmsCommons.EXAMPLE_CONTENT_TYPE;
 import static org.mule.extensions.jms.internal.common.JmsCommons.EXAMPLE_ENCODING;
 import static org.slf4j.LoggerFactory.getLogger;
@@ -36,6 +37,7 @@ import javax.jms.JMSException;
 import javax.jms.Message;
 import javax.jms.Session;
 
+import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 import org.slf4j.Logger;
 
 /**
@@ -198,5 +200,10 @@ public class JmsMessageBuilder implements org.mule.jms.commons.api.message.JmsMe
 
   public String getOutboundEncoding() {
     return outboundEncoding;
+  }
+
+  @Override
+  public String toString() {
+    return ReflectionToStringBuilder.toString(this, MULTI_LINE_STYLE);
   }
 }
