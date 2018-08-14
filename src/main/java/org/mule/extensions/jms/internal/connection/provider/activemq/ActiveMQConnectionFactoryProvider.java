@@ -10,6 +10,7 @@ import static java.lang.String.format;
 import static org.mule.runtime.api.meta.ExpressionSupport.NOT_SUPPORTED;
 import static org.mule.runtime.core.api.util.ClassUtils.instantiateClass;
 
+import org.apache.activemq.ActiveMQConnection;
 import org.mule.extensions.jms.api.connection.factory.activemq.ActiveMQConnectionFactoryConfiguration;
 import org.mule.extensions.jms.api.exception.JmsMissingLibraryException;
 import org.mule.extensions.jms.internal.connection.exception.ActiveMQException;
@@ -46,6 +47,8 @@ public class ActiveMQConnectionFactoryProvider {
   private static final String ACTIVEMQ_CONNECTION_FACTORY_CLASS = "org.apache.activemq.ActiveMQConnectionFactory";
   private static final String ACTIVEMQ_XA_CONNECTION_FACTORY_CLASS = "org.apache.activemq.ActiveMQXAConnectionFactory";
   private static final int REDELIVERY_IGNORE = -1;
+
+  private ActiveMQConnection connection;
 
   /**
    * Parameters required to configure a default {@link ActiveMQConnectionFactory}
